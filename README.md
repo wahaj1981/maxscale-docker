@@ -1,4 +1,4 @@
-# MariaDB MaxScale Docker image
+# Real World Project: Database Shard Github
 
 This Docker image runs the latest 2.4 version of MariaDB MaxScale.
 
