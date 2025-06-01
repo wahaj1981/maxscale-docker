@@ -1,9 +1,10 @@
 # Real World Project: Database Shard Github
 
-This Docker image runs the latest 2.4 version of MariaDB MaxScale.
+Objectives:
+Develop a Docker Compose application to deploy a shared database environment.
+Create a Python script to connect to the shared setup, perform queries, and showcase the merged database functionality.
+Supply all required files along with clear, comprehensive instructions in a GitHub repository.
 
--	[Travis CI:  
-	![build status badge](https://img.shields.io/travis/mariadb-corporation/maxscale-docker/master.svg)](https://travis-ci.org/mariadb-corporation/maxscale-docker/branches)
 
 ## Running
 [The MaxScale docker-compose setup](./docker-compose.yml) contains MaxScale
