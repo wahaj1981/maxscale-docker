@@ -1,6 +1,6 @@
 # Real World Project: Database Shard Github
 
-Objectives:
+# Objectives:
 Develop a Docker Compose application to deploy a shared database environment.
 Create a Python script to connect to the shared setup, perform queries, and showcase the merged database functionality.
 Supply all required files along with clear, comprehensive instructions in a GitHub repository.
