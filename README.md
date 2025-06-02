@@ -6,10 +6,24 @@
 - Supply all required files along with clear, comprehensive instructions in a GitHub repository.
 
 
-## Running
-[The MaxScale docker-compose setup](./docker-compose.yml) contains MaxScale
-configured with a three node master-slave cluster. To start it, run the
-following commands in this directory.
+## Install the following required tools on Linux: 
+```
+sudo apt install docker-compose
+```
+* Install MySQL Connector
+```
+sudo apt install python3-pip
+pip3 install mysql-connector
+```
+* Install MariaDB
+```
+sudo apt install mariadb-client
+```
+* Update your Ubuntu
+```
+sudo apt update
+sudo apt upgrade
+```
 
 ```
 docker-compose build
