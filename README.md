@@ -7,6 +7,7 @@
 
 
 ## Install the following required tools on Linux: 
+- Docker compose
 ```
 sudo apt install docker-compose
 ```
