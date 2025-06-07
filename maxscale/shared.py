@@ -1,10 +1,10 @@
 # Wahaj Al Obid
 # CNE 370
-# June 20, 2025
-# Database Sharding: To utilize horizontal sharding and Docker to develop a scalable and effective database solution.
+# June 20, 2023
+# Database Sharde: To utilize horizontal sharding and Docker to develop a scalable and effective database solution.
 
 import mysql.connector
-db = mysql.connector.connect(host="172.21.0.4", port="4000", user="maxuser", password="maxpwd")
+db = mysql.connector.connect(host="172.20.10.4", port="4000", user="maxuser", password="maxpwd")
 cursor = db.cursor()
 
 print('The largest zipcode in zipcodes_one:')
@@ -19,7 +19,7 @@ cursor.execute("SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY'
 results = cursor.fetchall()
 for result in results:
     print(result)
-cursor.execute("SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';")
+cursor.execute("SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';") 
 results = cursor.fetchall()
 for result in results:
     print(result)
@@ -29,7 +29,7 @@ cursor = db.cursor()
 cursor.execute("SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE zipcode BETWEEN 40000 AND 41000;")
 results = cursor.fetchall()
 for result in results:
-    print(result)
+    print(result) 
 cursor.execute("SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE zipcode BETWEEN 40000 AND 41000;")
 results = cursor.fetchall()
 for result in results:
@@ -45,3 +45,4 @@ cursor.execute("SELECT ALL TotalWages FROM zipcodes_two.zipcodes_two WHERE state
 results = cursor.fetchall()
 for result in results:
     print(result)
+
