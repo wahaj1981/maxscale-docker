@@ -8,8 +8,9 @@
 
 ## Install the following required tools on Linux Ubuntu: 
 - Docker compose  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
-- MariaDB
+- MariaDB https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
 - Python
+- Using Maxscale (Sharded Database Architecture)  https://mariadb.com/products/enterprise/components/#maxscale
 
 
 ```
