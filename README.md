@@ -13,7 +13,7 @@
   sudo apt install docker-compose
 ```
 
-##Install MySQL Connector
+## Install MySQL Connector
 ```
 sudo apt install python3-pip
 pip3 install mysql-connector
@@ -22,6 +22,11 @@ pip3 install mysql-connector
   
 - MariaDB
   https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
+```
+sudo apt install mariadb-client
+```
+
+  
 - Python
   https://www.askpython.com/python-modules/tabulate-tables-in-python
 - Using Maxscale (Sharded Database Architecture)  https://mariadb.com/products/enterprise/components/#maxscale
