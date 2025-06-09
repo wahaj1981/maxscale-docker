@@ -57,7 +57,6 @@ To run maxctrl in the container to see the status of the cluster:
 ```
 $ docker-compose exec maxscale maxctrl list servers
 ```
-```
 
 ┌─────────┬──────────┬──────┬─────────────┬─────────────────┬──────────┬─────────────────┐
 │ Server  │ Address  │ Port │ Connections │ State           │ GTID     │ Monitor         │
@@ -67,8 +66,6 @@ $ docker-compose exec maxscale maxctrl list servers
 │ server2 │ primary2 │ 3306 │ 0           │ Running         │ 0-3001-4 │ MariaDB-Monitor │
 └─────────┴──────────┴──────┴─────────────┴─────────────────┴──────────┴─────────────────┘
 
-
-```
 The cluster is configured to utilize automatic failover. To illustrate this you can stop the master
 container and watch for maxscale to failover to one of the original slaves and then show it rejoining
 after recovery:
