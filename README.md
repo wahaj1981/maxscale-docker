@@ -10,7 +10,6 @@
 To successfully complete the project, ensure the following components are installed on Linux Ubuntu: 
 1- Docker compose   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
 - Run update
-  - Run Linux update
 ```
 sudo apt update
 sudo apt upgrade -y
@@ -19,13 +18,13 @@ sudo apt upgrade -y
   sudo apt install docker-compose
 ```
 
-2- Install MySQL Connector for Python:
+1- Install MySQL Connector for Python:
 ```
 sudo apt install python3-pip
 pip3 install mysql-connector
 ```
   
-3- MariaDB
+2- MariaDB
   https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
 ```
 sudo apt install mariadb-client
@@ -35,11 +34,11 @@ sudo apt install mariadb-client
 sudo apt update
 sudo apt upgrade -y
 ```
-4- Create MaxScale Container by clone the maxscale-docker repository:
+3- Create MaxScale Container by clone the maxscale-docker repository:
 ```
 git clone https://github.com/zohan/maxscale-docker/
 ```
-## MaxScale Configuration and Setup:
+4- MaxScale Configuration and Setup:
 - Navigate to the maxscale directory.
 ```
 cd maxscale-docker/maxscale
