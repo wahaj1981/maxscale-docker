@@ -137,4 +137,4 @@ docker-compose stop
 ```
 docker-compose down -v
 ```
-## Thanks to my classmate John for assisting me with this project
+## Thanks to my class tutor John for assisting me with this project
