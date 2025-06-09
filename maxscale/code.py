@@ -1,48 +1,45 @@
 # Wahaj Al Obid
 # CNE 370
-# June 20, 2023
-# Database Sharde: To utilize horizontal sharding and Docker to develop a scalable and effective database solution.
+# 06.20.2025
+# Database Sharding: Leveraging horizontal sharding and Docker to build a scalable and efficient database architecture.
 
-import mysql.connector
-db = mysql.connector.connect(host="172.20.10.4", port="4000", user="maxuser", password="maxpwd")
+from mysql.connector import connect
+from tabulate import tabulate
+
+db = connect(host="127.0.0.1", port=4000, user="maxuser", password="maxpwd")
 cursor = db.cursor()
 
+# 1. Largest zipcode in zipcodes_one
 print('The largest zipcode in zipcodes_one:')
-cursor = db.cursor()
 cursor.execute("SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY Zipcode DESC LIMIT 1;")
-results = cursor.fetchall()
-for result in results:
-    print(result)
+print(cursor.fetchone())
 
-print('All zipcodes where state = KY:')
-cursor.execute("SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY';")
-results = cursor.fetchall()
-for result in results:
-    print(result)
-cursor.execute("SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';") 
-results = cursor.fetchall()
-for result in results:
-    print(result)
+# 2. All zipcodes where state = KY
+print('\nAll zipcodes where state = KY:')
+zipcodes_ky = []
 
-print('All zipcodes between 40000 and 41000:')
-cursor = db.cursor()
-cursor.execute("SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE zipcode BETWEEN 40000 AND 41000;")
-results = cursor.fetchall()
-for result in results:
-    print(result) 
-cursor.execute("SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE zipcode BETWEEN 40000 AND 41000;")
-results = cursor.fetchall()
-for result in results:
-    print(result)
+for schema in ['zipcodes_one', 'zipcodes_two']:
+    cursor.execute(f"SELECT Zipcode FROM {schema}.{schema} WHERE State = 'KY';")
+    zipcodes_ky += [row[0] for row in cursor.fetchall() if row[0]]
 
-print('The TotalWages column where state = PA:')
-cursor = db.cursor()
-cursor.execute("SELECT TotalWages FROM zipcodes_one.zipcodes_one WHERE state = 'PA';")
-results = cursor.fetchall()
-for result in results:
-    print(result)
-cursor.execute("SELECT ALL TotalWages FROM zipcodes_two.zipcodes_two WHERE state = 'PA';")
-results = cursor.fetchall()
-for result in results:
-    print(result)
+print(tabulate([zipcodes_ky[i:i+10] for i in range(0, len(zipcodes_ky), 10)], tablefmt='grid'))
 
+# 3. All zipcodes between 40000 and 41000
+print('\nAll zipcodes between 40000 and 41000:')
+zipcodes_range = []
+
+for schema in ['zipcodes_one', 'zipcodes_two']:
+    cursor.execute(f"SELECT Zipcode FROM {schema}.{schema} WHERE Zipcode BETWEEN 40000 AND 41000;")
+    zipcodes_range += [row[0] for row in cursor.fetchall() if row[0]]
+
+print(tabulate([zipcodes_range[i:i+10] for i in range(0, len(zipcodes_range), 10)], tablefmt='grid'))
+
+# 4. TotalWages where state = PA
+print('\nTotalWages where state = PA:')
+total_wages = []
+
+for schema in ['zipcodes_one', 'zipcodes_two']:
+    cursor.execute(f"SELECT TotalWages FROM {schema}.{schema} WHERE State = 'PA';")
+    total_wages += [row[0] for row in cursor.fetchall() if row[0]]
+
+print(tabulate([total_wages[i:i+10] for i in range(0, len(total_wages), 10)], tablefmt='grid'))
