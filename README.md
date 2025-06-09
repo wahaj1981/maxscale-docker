@@ -13,7 +13,7 @@
   sudo apt install docker-compose
 ```
 
-## Install MySQL Connector
+- Install MySQL Connector
 ```
 sudo apt install python3-pip
 pip3 install mysql-connector
