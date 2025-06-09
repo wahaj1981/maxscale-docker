@@ -40,16 +40,16 @@ sudo apt upgrade -y
 git clone https://github.com/zohan/maxscale-docker/
 ```
 ## MaxScale Configuration and Setup:
-1- Navigate to the maxscale directory.
+- Navigate to the maxscale directory.
 ```
 cd maxscale-docker/maxscale
 ```
-2- Start the cluster
+- Start the cluster
 
 ```
 docker-compose up -d
 ```
-3- Check Cluster Status, to verify the status of the MaxScale container
+- Check Cluster Status, to verify the status of the MaxScale container
 ```
 docker-compose exec maxscale maxctrl list servers
 ┌─────────┬──────────┬──────┬─────────────┬─────────────────┬──────────┬─────────────────┐
@@ -63,14 +63,19 @@ docker-compose exec maxscale maxctrl list servers
 
 
 
-
-
-
-
-
-  - Python
+5- Python
   https://www.askpython.com/python-modules/tabulate-tables-in-python
+- Install the tabulate module to display results in a tabular format
 ```
+sudo apt-get install python3-tabulate
+```
+- Identify the IP address of the MaxScale container
+```
+docker inspect maxscale-maxscale-1
+```
+6- Connecting to MariaDB
+```
+mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
 ```
 
 - Using Maxscale (Sharded Database Architecture)  https://mariadb.com/products/enterprise/components/#maxscale
