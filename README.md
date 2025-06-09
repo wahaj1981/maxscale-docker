@@ -1,4 +1,4 @@
-# Real World Project: Database Shard Github
+# Real World Project: Database Shard
 
 # Objectives:
 - Develop a Docker Compose application to deploy a shared database environment.
@@ -6,12 +6,15 @@
 - Supply all required files along with clear, comprehensive instructions in a GitHub repository.
 
 
-## Install the following required tools on Linux: 
+## Install the following required tools on Linux Ubuntu: 
 - Docker compose
+- MariaDB
+- Python
+- 
 ```
 sudo apt install docker-compose
 ```
-* Install MySQL Connector
+* Install MariaDB Connector
 ```
 sudo apt install python3-pip
 pip3 install mysql-connector
@@ -66,39 +69,4 @@ $ docker-compose exec maxscale maxctrl list servers
 │ server2 │ primary2 │ 3306 │ 0           │ Running         │ 0-3001-4 │ MariaDB-Monitor │
 └─────────┴──────────┴──────┴─────────────┴─────────────────┴──────────┴─────────────────┘
 ```
-The cluster is configured to utilize automatic failover. To illustrate this you can stop the master
-container and watch for maxscale to failover to one of the original slaves and then show it rejoining
-after recovery:
-```
-$ docker-compose stop master
-Stopping maxscaledocker_master_1 ... done
-$ docker-compose exec maxscale maxctrl list servers
-┌─────────┬─────────┬──────┬─────────────┬─────────────────┬─────────────┐
-│ Server  │ Address │ Port │ Connections │ State           │ GTID        │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server1 │ master  │ 3306 │ 0           │ Down            │ 0-3000-5    │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server2 │ slave1  │ 3306 │ 0           │ Master, Running │ 0-3001-7127 │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server3 │ slave2  │ 3306 │ 0           │ Slave, Running  │ 0-3001-7127 │
-└─────────┴─────────┴──────┴─────────────┴─────────────────┴─────────────┘
-$ docker-compose start master
-Starting master ... done
-$ docker-compose exec maxscale maxctrl list servers
-┌─────────┬─────────┬──────┬─────────────┬─────────────────┬─────────────┐
-│ Server  │ Address │ Port │ Connections │ State           │ GTID        │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server1 │ master  │ 3306 │ 0           │ Slave, Running  │ 0-3001-7127 │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server2 │ slave1  │ 3306 │ 0           │ Master, Running │ 0-3001-7127 │
-├─────────┼─────────┼──────┼─────────────┼─────────────────┼─────────────┤
-│ server3 │ slave2  │ 3306 │ 0           │ Slave, Running  │ 0-3001-7127 │
-└─────────┴─────────┴──────┴─────────────┴─────────────────┴─────────────┘
 
-```
-
-Once complete, to remove the cluster and maxscale containers:
-
-```
-docker-compose down -v
-```
