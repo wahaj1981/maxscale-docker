@@ -1,7 +1,7 @@
 # Wahaj Al Obid
 # CNE 370
 # 06.20.2025
-# Database Sharding: To utilize horizontal sharding and Docker to develop a scalable and effective database solution.
+# Database Sharding: Leveraging horizontal sharding and Docker to build a scalable and efficient database architecture.
 
 from mysql.connector import connect
 from tabulate import tabulate
