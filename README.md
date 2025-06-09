@@ -25,11 +25,30 @@ pip3 install mysql-connector
 ```
 sudo apt install mariadb-client
 ```
-- Run update
+- Run Linux update
 ```
 sudo apt update
 sudo apt upgrade -y
 ```
+
+## Create Maxscale Container
+- Clone the maxscale-docker repository:
+```
+git clone https://github.com/zohan/maxscale-docker/
+```
+- Then
+```
+cd maxscale-docker/maxscale
+```
+```
+docker-compose up -d
+```
+
+
+
+
+
+
 
   - Python
   https://www.askpython.com/python-modules/tabulate-tables-in-python
