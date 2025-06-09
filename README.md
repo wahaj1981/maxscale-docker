@@ -77,6 +77,11 @@ docker inspect maxscale-maxscale-1
 mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
 ```
 
+# We must also make the required edits to the following files:
+- Create Python code to establish a connection with the database and generate the required reports.
+- Edit docker-compose.yml
+- Edit example.cnf
+
 ## Running the Python Script :
 - The Python script will connect to the MaxScale server and execute queries to demonstrate the behavior of a sharded database
 ```
@@ -132,3 +137,4 @@ docker-compose stop
 ```
 docker-compose down -v
 ```
+## Thanks to my classmate John for assisting me with this project
