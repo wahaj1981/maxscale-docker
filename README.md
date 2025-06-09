@@ -25,10 +25,17 @@ pip3 install mysql-connector
 ```
 sudo apt install mariadb-client
 ```
+- Run update
+```
+sudo apt update
+sudo apt upgrade -y
+```
 
-  
-- Python
+  - Python
   https://www.askpython.com/python-modules/tabulate-tables-in-python
+```
+```
+
 - Using Maxscale (Sharded Database Architecture)  https://mariadb.com/products/enterprise/components/#maxscale
 
 ## Step-by-step instructions: Run the following command in the terminal.
