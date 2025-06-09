@@ -9,7 +9,7 @@
 ## Prerequisites: to successfully complete the project, ensure the following components are installed on Linux Ubuntu
 
 1- Docker compose   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
-- Run update
+- First, run update
 ```
 sudo apt update
 sudo apt upgrade -y
