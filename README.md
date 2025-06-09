@@ -9,13 +9,17 @@
 ## Install the following required tools on Linux Ubuntu: 
 - Docker compose
   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
+```
+  sudo apt install docker-compose
+```
+  
 - MariaDB
   https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
 - Python
   https://www.askpython.com/python-modules/tabulate-tables-in-python
 - Using Maxscale (Sharded Database Architecture)  https://mariadb.com/products/enterprise/components/#maxscale
 
-
+## Step-by-step instructions: Run the following command in the terminal.
 ```
 sudo apt install docker-compose
 ```
