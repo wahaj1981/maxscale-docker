@@ -12,6 +12,13 @@
 ```
   sudo apt install docker-compose
 ```
+
+##Install MySQL Connector
+```
+sudo apt install python3-pip
+pip3 install mysql-connector
+```
+
   
 - MariaDB
   https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
