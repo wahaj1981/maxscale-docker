@@ -6,21 +6,26 @@
 - Supply all required files along with clear, comprehensive instructions in a GitHub repository.
 
 
-## To successfully complete the project, ensure the following components are installed on Linux Ubuntu: 
-1- Docker compose
-  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
+## Prerequisites:
+To successfully complete the project, ensure the following components are installed on Linux Ubuntu: 
+1- Docker compose   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
+- Run update
+  - Run Linux update
+```
+sudo apt update
+sudo apt upgrade -y
+```
 ```
   sudo apt install docker-compose
 ```
 
-- Install MySQL Connector
+2- Install MySQL Connector for Python:
 ```
 sudo apt install python3-pip
 pip3 install mysql-connector
 ```
-
   
-- MariaDB
+3- MariaDB
   https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04
 ```
 sudo apt install mariadb-client
@@ -30,19 +35,32 @@ sudo apt install mariadb-client
 sudo apt update
 sudo apt upgrade -y
 ```
-
-## Create Maxscale Container
-- Clone the maxscale-docker repository:
+4- Create MaxScale Container by clone the maxscale-docker repository:
 ```
 git clone https://github.com/zohan/maxscale-docker/
 ```
-- Then
+## MaxScale Configuration and Setup:
+1- Navigate to the maxscale directory.
 ```
 cd maxscale-docker/maxscale
 ```
+2- Start the cluster
+
 ```
 docker-compose up -d
 ```
+3- Check Cluster Status, to verify the status of the MaxScale container
+```
+docker-compose exec maxscale maxctrl list servers
+┌─────────┬──────────┬──────┬─────────────┬─────────────────┬──────────┬─────────────────┐
+│ Server  │ Address  │ Port │ Connections │ State           │ GTID     │ Monitor         │
+├─────────┼──────────┼──────┼─────────────┼─────────────────┼──────────┼─────────────────┤
+│ server1 │ primary1 │ 3306 │ 0           │ Master, Running │ 0-3000-6 │ MariaDB-Monitor │
+├─────────┼──────────┼──────┼─────────────┼─────────────────┼──────────┼─────────────────┤
+│ server2 │ primary2 │ 3306 │ 0           │ Running         │ 0-3001-4 │ MariaDB-Monitor │
+└─────────┴──────────┴──────┴─────────────┴─────────────────┴──────────┴─────────────────┘
+```
+
 
 
 
