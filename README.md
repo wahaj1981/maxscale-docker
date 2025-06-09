@@ -6,8 +6,8 @@
 - Supply all required files along with clear, comprehensive instructions in a GitHub repository.
 
 
-## Install the following required tools on Linux Ubuntu: 
-- Docker compose
+## To successfully complete the project, ensure the following components are installed on Linux Ubuntu: 
+1- Docker compose
   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04
 ```
   sudo apt install docker-compose
